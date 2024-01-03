@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    depends_on:
+      - redis
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-UNDEFINED}
+      - NYTIMES_API_KEY=${NYTIMES_API_KEY:-UNDEFINED}
+    volumes:
+      - ./:/usr/app
+      - /usr/app/.venv/ # This stops local .venv getting mounted
+    ports:
+      - "8080:8080"
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis:/data
+
+volumes:
+  redis:
+    driver: local

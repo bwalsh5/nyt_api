@@ -65,3 +65,6 @@ async def startup():
     redis = aioredis.from_url(REDIS_URL)
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
     
+    
+    
+    

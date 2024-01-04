@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for nyt-api-lively-fire-6449 on 2024-01-03T17:18:10-05:00
+# fly.toml app configuration file generated for nyt-api on 2024-01-03T17:18:10-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "nyt-api-lively-fire-6449"
+app = "nyt-api"
 primary_region = "iad"
 
 [build]

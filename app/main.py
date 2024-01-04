@@ -37,7 +37,7 @@ def index():
 
 
 @app.get("/news")
-# @cache(namespace="test", expire=21600)
+@cache(namespace="test", expire=21600)
 def news():
     summary = ""
     images = []
@@ -58,8 +58,8 @@ def news():
     return {"summary": summary, "images": images}
 
 
-# @app.on_event("startup")
-# async def startup():
-#     REDIS_URL = os.getenv("REDIS_URL", "redis://redis")
-#     redis = aioredis.from_url(REDIS_URL)
-#     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
+@app.on_event("startup")
+async def startup():
+    REDIS_URL = os.getenv("REDIS_URL", "redis://redis")
+    redis = aioredis.from_url(REDIS_URL)
+    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")

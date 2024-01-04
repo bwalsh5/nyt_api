@@ -4,7 +4,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from fastapi import FastAPI, HTTPException
-# from fastapi.middleware.cors import CORSMiddleware
+
+ from fastapi.middleware.cors import CORSMiddleware
 # from fastapi_cache import FastAPICache
 # from fastapi_cache.backends.redis import RedisBackend
 # from fastapi_cache.decorator import cache

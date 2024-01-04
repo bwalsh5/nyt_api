@@ -5,11 +5,11 @@ load_dotenv()
 
 from fastapi import FastAPI, HTTPException
 
- from fastapi.middleware.cors import CORSMiddleware
-# from fastapi_cache import FastAPICache
-# from fastapi_cache.backends.redis import RedisBackend
-# from fastapi_cache.decorator import cache
-# from redis import asyncio as aioredis
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
+from fastapi_cache.decorator import cache
+from redis import asyncio as aioredis
 
 from .nytimes_client import get_top_stories
 from .story_formatter import format_stories_to_string
@@ -38,7 +38,7 @@ def index():
 
 
 @app.get("/news")
-# @cache(namespace="test", expire=21600)
+@cache(namespace="test", expire=21600)
 def news():
     summary = ""
     images = []
@@ -59,9 +59,9 @@ def news():
     return {"summary": summary, "images": images}
 
 
-# @app.on_event("startup")
-# async def startup():
-#     REDIS_URL = os.getenv("REDIS_URL", "redis://redis")
-#     redis = aioredis.from_url(REDIS_URL)
-#     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
+@app.on_event("startup")
+async def startup():
+    REDIS_URL = os.getenv("REDIS_URL", "redis://redis")
+    redis = aioredis.from_url(REDIS_URL)
+    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
     

@@ -2,7 +2,9 @@ import os
 
 import openai
 
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 # You will need to get your API key from https://platform.openai.com/account/api-keys

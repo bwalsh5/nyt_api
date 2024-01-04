@@ -4,11 +4,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi_cache import FastAPICache
-from fastapi_cache.backends.redis import RedisBackend
-from fastapi_cache.decorator import cache
-from redis import asyncio as aioredis
+# from fastapi.middleware.cors import CORSMiddleware
+# from fastapi_cache import FastAPICache
+# from fastapi_cache.backends.redis import RedisBackend
+# from fastapi_cache.decorator import cache
+# from redis import asyncio as aioredis
 
 from .nytimes_client import get_top_stories
 from .story_formatter import format_stories_to_string

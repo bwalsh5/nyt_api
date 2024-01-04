@@ -2,13 +2,13 @@ import os
 
 import openai
 
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 
 
 # You will need to get your API key from https://platform.openai.com/account/api-keys
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = ("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")
 
 
 # Got this function from this amazing course https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/

@@ -67,3 +67,4 @@ def summarize_news_stories(stories):
     """
 
     return get_completion(prompt)
+

@@ -19,7 +19,7 @@ app = FastAPI()
 origins = [
     "http://localhost:8080",
     "http://127.0.0.1:5500/",  # Live server default
-    "https://summer-ui.fly.dev/",
+    "https://nyt-api.fly.dev/",
 ]
 
 app.add_middleware(
@@ -37,7 +37,7 @@ def index():
 
 
 @app.get("/news")
-@cache(namespace="test", expire=21600)
+# @cache(namespace="test", expire=21600)
 def news():
     summary = ""
     images = []

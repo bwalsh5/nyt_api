@@ -9,7 +9,7 @@ load_dotenv()
 
 # You will need to get your API key from https://platform.openai.com/account/api-keys
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
+openai.api_key = API_KEY
 
 # Got this function from this amazing course https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/
 def get_completion(prompt, model="gpt-3.5-turbo"):
